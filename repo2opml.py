@@ -34,7 +34,6 @@ Options:
     m, --manifest=  url or local file, use hyphen (-) for STDIN
     l, --label=     label for Google Reader
     j, --head=      <head /> element for OPML
-
 """
 
 import urllib
