@@ -34,6 +34,8 @@ Options:
     m, --manifest=  url or local file, use hyphen (-) for STDIN
     l, --label=     label for Google Reader
     j, --head=      <head /> element for OPML
+    
+Please note: only URLs are implemented.
 """
 
 import urllib
@@ -59,18 +61,18 @@ class Manifest:
         """return default source"""
         return defManifest
 
-def getRemotes(manifest):
-    xRemotes  = manifest.getElementsByTagName('remote')
+	def getRemotes(manifest):
+	    xRemotes  = manifest.getElementsByTagName('remote')
 
-    for xRemote in xRemotes:
-        remotes[xRemote.getAttrValue('name')] = xRemote.getAttrValue('remote')
+    	for xRemote in xRemotes:
+        	remotes[xRemote.getAttrValue('name')] = xRemote.getAttrValue('remote')
 
-def getProjects(manifest):
-    xProjects = manifest.getElementsByTagName('project')
-    projects = {}
+	def getProjects(manifest):
+    	xProjects = manifest.getElementsByTagName('project')
+    	projects = {}
 
-    for xProject in xProjects:
-        projects[xmlProject.
+    	for xProject in xProjects:
+        	projects[xProject.
 
 def usage():
     print __doc__
