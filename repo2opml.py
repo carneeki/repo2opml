@@ -43,7 +43,7 @@ import urllib
 from xml.dom import minidom
 
 _debug = 0
-defManifest = 'https://github.com/coolya/android/raw/master/default.xml'
+defManifest = 'https://android.git.kernel.org/?p=platform/manifest.git;a=blob_plain;f=default.xml;hb=HEAD'
 
 class Manifest:
     """repo manifest to OPML converter"""
