@@ -40,6 +40,7 @@ Please note: only URLs are implemented.
 """
 
 import urllib
+import os
 from xml.dom import minidom
 
 _debug = 0
@@ -63,17 +64,19 @@ class Manifest:
         return defManifest
 
 	def getRemotes(manifest):
-	    xRemotes  = manifest.getElementsByTagName('remote')
+	    xRemotes = manifest.getElementsByTagName('remote')
 
     	for xRemote in xRemotes:
-        	remotes[xRemote.getAttrValue('name')] = xRemote.getAttrValue('remote')
+    		xRemote
+			#remotes[xRemote.getAttrValue('name')] = xRemote.getAttrValue('remote')
 
 	def getProjects(manifest):
 		projects = {}
     	xProjects = manifest.getElementsByTagName('project')
 
     	for xProject in xProjects:
-        	projects[xProject.
+        	#projects[xProject.
+        	xProject
 
 def usage():
     print __doc__
@@ -98,7 +101,12 @@ def main(argv):
         elif opt in ("j", "--head"):
             opml['head'] = arg
 
-    m = Manifest(manifest,opml)
+	try:
+		source = os.environ['REPO2OPML_MANIFEST']
+	except KeyError:
+		# this is not really a problem, just use the defManifest defined above
+		pass
+	m = Manifest(manifest,opml)
     print m.output()
 
 foo = """\
