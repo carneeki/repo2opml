@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """ Repo manifest to OPML
 
 Generates an OPML file for use in things like Google Reader from a repo
@@ -68,8 +69,8 @@ class Manifest:
         	remotes[xRemote.getAttrValue('name')] = xRemote.getAttrValue('remote')
 
 	def getProjects(manifest):
+		projects = {}
     	xProjects = manifest.getElementsByTagName('project')
-    	projects = {}
 
     	for xProject in xProjects:
         	projects[xProject.
