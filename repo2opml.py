@@ -5,6 +5,7 @@ Generates an OPML file for use in things like Google Reader from a repo
 manifest.xml file. More information on repo can be found at:
     http://android.git.kernel.org/?p=tools/repo.git;a=summary
 
+MIT License:
 Copyright (c) 2011 Adam Carmichael <carneeki@carneeki.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -51,26 +52,27 @@ class Manifest:
 
     def __init__(self, source=None):
         self.loadManifest(source and source or self.getDefaultSource())
+        print __line__
 
-    def loadSource(self, source):
-        """load source"""
-
+    def loadManifest(self, source):
+        """load manifest.xml"""
+		print __line__
         usock = urllib.urlopen(source)
-        manifest = minidom.parse(usock)
+        self.manifest = minidom.parse(usock)
         usock.close()
 
-    def getDefaultSource():
+    def getDefaultSource(self):
         """return default source"""
         return defManifest
 
-	def getRemotes(manifest):
+	def getRemotes(self, manifest):
 	    xRemotes = manifest.getElementsByTagName('remote')
 
     	for xRemote in xRemotes:
     		xRemote
 			#remotes[xRemote.getAttrValue('name')] = xRemote.getAttrValue('remote')
 
-	def getProjects(manifest):
+	def getProjects(self, manifest):
 		projects = {}
     	xProjects = manifest.getElementsByTagName('project')
 
@@ -107,7 +109,7 @@ def main(argv):
 		# this is not really a problem, just use the defManifest defined above
 		pass
 	m = Manifest(manifest,opml)
-    print m.output()
+    #print m.output()
 
 foo = """\
 <?xml version="1.0" encoding="UTF-8"?>
