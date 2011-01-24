@@ -42,6 +42,7 @@ Please note: only URLs are implemented.
 
 import urllib
 import os
+import sys
 from xml.dom import minidom
 
 _debug = 0
