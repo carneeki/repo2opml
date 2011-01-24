@@ -53,11 +53,11 @@ class Manifest:
 
     def __init__(self, source=None):
         self.loadManifest(source and source or self.getDefaultSource())
-        print __line__
+        print "__init__"
 
     def loadManifest(self, source):
         """load manifest.xml"""
-        print __line__
+        print "loadManifest"
         usock = urllib.urlopen(source)
         self.manifest = minidom.parse(usock)
         usock.close()
@@ -85,7 +85,7 @@ def usage():
     print __doc__
 
 def main(argv):
-    print __line__
+    print "main"
     try:
         opts, args = getopt.getopt(argv, "hml:d", ["help", "manifest=", "label=", "debug"])
     except getopt.GetoptError:
