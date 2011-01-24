@@ -112,6 +112,10 @@ def main(argv):
     m = Manifest(manifest,opml)
     #print m.output()
 
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
+
 foo = """\
 <?xml version="1.0" encoding="UTF-8"?>
 <opml version="1.0">
