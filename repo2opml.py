@@ -43,6 +43,7 @@ Please note: only URLs are implemented.
 import urllib
 import os
 import sys
+import getopt
 from xml.dom import minidom
 
 _debug = 0
