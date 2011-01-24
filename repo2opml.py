@@ -84,6 +84,7 @@ def usage():
     print __doc__
 
 def main(argv):
+	print "foo"
     try:
         opts, args = getopt.getopt(argv, "hml:d", ["help", "manifest=", "label=", "debug"])
     except getopt.GetoptError:
