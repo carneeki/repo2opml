@@ -56,7 +56,7 @@ class Manifest:
 
     def loadManifest(self, source):
         """load manifest.xml"""
-		print __line__
+        print __line__
         usock = urllib.urlopen(source)
         self.manifest = minidom.parse(usock)
         usock.close()
@@ -65,26 +65,26 @@ class Manifest:
         """return default source"""
         return defManifest
 
-	def getRemotes(self, manifest):
-	    xRemotes = manifest.getElementsByTagName('remote')
+    def getRemotes(self, manifest):
+        xRemotes = manifest.getElementsByTagName('remote')
 
-    	for xRemote in xRemotes:
-    		xRemote
-			#remotes[xRemote.getAttrValue('name')] = xRemote.getAttrValue('remote')
+        for xRemote in xRemotes:
+            xRemote
+            #remotes[xRemote.getAttrValue('name')] = xRemote.getAttrValue('remote')
 
-	def getProjects(self, manifest):
-		projects = {}
-    	xProjects = manifest.getElementsByTagName('project')
+    def getProjects(self, manifest):
+        projects = {}
+        xProjects = manifest.getElementsByTagName('project')
 
-    	for xProject in xProjects:
-        	#projects[xProject.
-        	xProject
+        for xProject in xProjects:
+            #projects[xProject.
+            xProject
 
 def usage():
     print __doc__
 
 def main(argv):
-	print "foo"
+    print __line__
     try:
         opts, args = getopt.getopt(argv, "hml:d", ["help", "manifest=", "label=", "debug"])
     except getopt.GetoptError:
@@ -104,12 +104,12 @@ def main(argv):
         elif opt in ("j", "--head"):
             opml['head'] = arg
 
-	try:
-		source = os.environ['REPO2OPML_MANIFEST']
-	except KeyError:
-		# this is not really a problem, just use the defManifest defined above
-		pass
-	m = Manifest(manifest,opml)
+    try:
+        source = os.environ['REPO2OPML_MANIFEST']
+    except KeyError:
+        # this is not really a problem, just use the defManifest defined above
+        pass
+    m = Manifest(manifest,opml)
     #print m.output()
 
 foo = """\
